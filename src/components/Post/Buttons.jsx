@@ -5,19 +5,19 @@ import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { auth, db } from "../../firebase/config";
 
 const Buttons = ({ tweet }) => {
-  // oturumu açık olan kullanıcı bu tweet'i likeladı mı?
+  // oturumu acik olan kullanici bu tweet'i like ladi mi?
   const isLiked = tweet.likes.includes(auth.currentUser.uid);
 
   // like durumunu tersine çevirir
   const toggleLike = () => {
-    // güncellencek dökümanın referansı al
+    // guncellencek dokumanin referansini alma
     const tweetRef = doc(db, "tweets", tweet.id);
 
     updateDoc(tweetRef, {
       likes: isLiked
-        ? // eğer kullanıcı like'lamışsa likes dizisinden kullanıcının id'sini kaldır
+        ? // eger kullanici like'lamissa likes dizisinden kullanicinin id'sini kaldir
           arrayRemove(auth.currentUser.uid)
-        : // yoksa likes dizisine  kullanıcının id'sini ekle
+        : // yoksa likes dizisine  kullanicinin id'sini ekle
           arrayUnion(auth.currentUser.uid),
     });
   };

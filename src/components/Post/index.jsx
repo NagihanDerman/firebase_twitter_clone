@@ -5,7 +5,7 @@ import Dropdown from "./Dropdown";
 import UserInfo from "./UserInfo";
 
 const Post = ({ tweet }) => {
-  // tweet'i oturumu açık olan kullanıcı mı attı?
+  // tweet'i oturumu acik olan kullanici mi atiyor?
   const isOwn = tweet.user.id === auth.currentUser.uid;
 
   return (

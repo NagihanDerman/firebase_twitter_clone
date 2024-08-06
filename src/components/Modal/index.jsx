@@ -9,27 +9,27 @@ const Modal = ({ tweet, close }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // inputlardaki verilere eriş
+    // inputlardaki verilere ulasma
     const text = e.target.title.value;
     const file = e.target.file.files[0];
 
-    // güncellenicek dökümanın referansını al
+    // güncellenecek dökümanin referansini al
     const tweetRef = doc(db, "tweets", tweet.id);
 
     try {
       if (!file && !file?.type.startsWith("image")) {
-        // eğer fotoğraf seçilmediyse sadece yazıyı güncelle
+        // eger foto secilmediyse sadece yaziyi guncelle
         await updateDoc(tweetRef, {
           textContent: text,
           isEdited: true,
         });
       } else {
-        // seçilidyse hem yazı hemde fotoğrafı güncelle
+        // foto secildiyse hem yazi hemde foto guncelle
 
-        // seçilen fotoğrafı storage'a yükle
+        // secilen fotoyu storage'a yukle
         const newUrl = await upload(file);
 
-        // belgenin hem yazı hem foto değerini güncelle
+        // belgenin hem yazi hem foto değerini güncelle
         await updateDoc(tweetRef, {
           textContent: text,
           imageContent: newUrl,

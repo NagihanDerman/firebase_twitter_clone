@@ -9,32 +9,32 @@ import upload from "../../utils/upload";
 const Form = ({ user }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  // tweets kolleksiyonun referansı
+  // tweets kolleksiyonun referansini alma
   const tweetsCol = collection(db, "tweets");
 
-  // form gönderildiğinde çalışır
+  // form gönderildiğinde çalistirma
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 1) inputlardaki verilere eriş
+    // 1) inputlardaki verilere erisme
     const text = e.target[0].value;
     const file = e.target[1].files[0];
 
-    // 2) yazı ve resim içeriği yoksa uyarı ver
+    // 2) yazi ve resim içeriği yoksa uyarı verir
     if (!text && !file) {
       return toast.warning("Please enter content", {
         position: "bottom-right",
       });
     }
 
-    // yükleniyor state'ini true'ya çek
+    // yükleniyor state'ini true'ya cekme
     setIsLoading(true);
 
     try {
       // 3) dosya varsa storage'a yükle
       const url = await upload(file);
 
-      // 4) yeni tweet dökümanını kolleksiyona ekle
+      // 4) yeni tweet dökümanini kolleksiyona ekle
       await addDoc(tweetsCol, {
         textContent: text,
         imageContent: url,
@@ -54,7 +54,7 @@ const Form = ({ user }) => {
     // yükleniyor state'ini false'a çek
     setIsLoading(false);
 
-    // 5) formu sıfırla
+    // 5) formu sifirla
     e.target.reset();
   };
 

@@ -17,14 +17,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// auth hizmetinin referansını al
+// auth hizmetinin referansini al
 export const auth = getAuth(app);
 
-// google sağlayıcısının kurulumu
+// google saglayicinin  kurulumu
 export const provider = new GoogleAuthProvider();
 
-// veritbanının referansını al
+// veritabaninin referansini al
 export const db = getFirestore(app);
 
-// storage referansını al
+// storage referansini al
 export const storage = getStorage(app);

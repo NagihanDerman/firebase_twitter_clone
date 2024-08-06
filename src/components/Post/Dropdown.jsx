@@ -16,10 +16,10 @@ const Dropdown = ({ tweet }) => {
 
   // silme
   const handleDelete = () => {
-    // silinecek dökümanın referansını al
+    // silinecek dokumanin referansini alma
     const tweetRef = doc(db, "tweets", tweet.id);
 
-    // dökümanı kolleksiyon kaldır
+    // dokumani kolleksiyona kaldir
     deleteDoc(tweetRef)
       .then(() => toast.info("Tweet removed from the feed"))
       .catch(() => toast.error("An error occurred"));

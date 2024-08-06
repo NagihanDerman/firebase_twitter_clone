@@ -9,13 +9,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
 
-        {/* Kullanıcın, erişmek için hesabına giriş yapması zorunlu olan route'ları bir kapsayıcı route içerisine aldık */}
+        {/* Kullanicinin, hesabına erismek icin  giriş yapması zorunlu olan route'ları kapsayıcı bir route icine alma */}
         <Route element={<Protected />}>
           <Route path="/home" element={<Feed />} />
-          <Route path="/profil" element={<h1>Profil</h1>} />
-          <Route path="/ayar" element={<h1>Ayar</h1>} />
-          <Route path="/mesaj" element={<h1>Mesajlar</h1>} />
-          <Route path="/mail" element={<h1>Mail</h1>} />
+          <Route path="/profile" element={<h1>Profile</h1>} />
+          <Route path="/setting" element={<h1>Setting</h1>} />
+          <Route path="/Message" element={<h1>Message</h1>} />
+          <Route path="/mail" element={<h1>Email</h1>} />
         </Route>
       </Routes>
     </BrowserRouter>

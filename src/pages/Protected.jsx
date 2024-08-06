@@ -4,24 +4,24 @@ import { Outlet, useNavigate, Navigate } from "react-router-dom";
 import { auth } from "../firebase/config";
 
 const Protected = () => {
-  // kullanıcının yetkisi var mı state'i
+  // kullanicinin yetkisi var mi state'i
   const [isAuth, setIsAuth] = useState();
 
   useEffect(() => {
-    // onAuthStateChanged > kullanıcı oturumundaki değişimi izler
+    // onAuthStateChanged > kullanici oturumundaki degisimi izler
     onAuthStateChanged(auth, (user) => {
-      // eğerki kullanıcı varsa yetkisini true'ya çek
-      // oturumu kapalıysa yetkisiyi false'a çek
+      // kullanici varsa yetkisini true'ya cek
+      // oturumu kapaliysa yetkisini false'a cek
       setIsAuth(user ? true : false);
     });
   }, []);
 
-  // eğer yetkisi yoksa
+  // eger yetkisi yoksa
   if (isAuth === false) {
     return <Navigate to={"/"} />;
   }
 
-  // yetkisi varsa alt route'daki sayfayı göster
+  // yetkisi varsa alt route'daki sayfayi göster
   return <Outlet />;
 };
 

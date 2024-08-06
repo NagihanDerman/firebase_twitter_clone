@@ -17,12 +17,12 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  //form göndeirlince
+  //form gönderilince
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isSignUp) {
-      // kaydol modundaysa: hesap oluştur
+      // kaydol modundaysa: hesap olustur
       createUserWithEmailAndPassword(auth, email, pass)
         .then(() => {
           toast.success("Your account has been created");
@@ -30,7 +30,7 @@ const Login = () => {
         })
         .catch((err) => toast.error("An error occurred: " + err.code));
     } else {
-      // giriş modundaysa: hesaba giriş yap
+      // giriş modundaysa: hesaba giris yap
       signInWithEmailAndPassword(auth, email, pass)
         .then(() => {
           toast.success("Logged into account");
@@ -43,14 +43,14 @@ const Login = () => {
     }
   };
 
-  // şifre sıfırlama epostası gönder
+  // şifre sifirlama epostasi gönder
   const handleReset = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => toast.info("Password reset email sent. Check your mail"))
       .catch((err) => toast.error("An error occurred" + err.code));
   };
 
-  // google ile giriş yap
+  // google ile giris yap
   const handleGoogle = () => {
     signInWithPopup(auth, provider)
       .then(() => {
@@ -67,7 +67,7 @@ const Login = () => {
           <img className="h-[60px]" src="/x-logo.webp" />
         </div>
 
-        <h1 className="text-lg font-bold text-center">Log in to Twitterp</h1>
+        <h1 className="text-lg font-bold text-center">Log in to Twitter</h1>
 
         <button
           onClick={handleGoogle}

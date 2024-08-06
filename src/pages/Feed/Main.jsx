@@ -9,10 +9,10 @@ const Main = ({ user }) => {
   const [tweets, setTweets] = useState();
 
   useEffect(() => {
-    // abone olunucak kolleksiyonun referansını alalım
+    // abone olunucak kolleksiyonun referansini alma
     const tweetsCol = collection(db, "tweets");
 
-    // sorgu ayarlarını yap
+    // sorgu ayarlarini yapma
     const q = query(tweetsCol, orderBy("createdAt", "desc"));
 
     // kolleksiyondaki verilere abone ol
