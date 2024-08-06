@@ -16,4 +16,4 @@ This project is a clone of a Twitter application built using React, Firebase, an
 
 ### GIF
 
-<img src=""/>
+<img src="./public/twitter-clone.mp4"/>
