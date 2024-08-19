@@ -24,8 +24,6 @@ const Modal = ({ tweet, close }) => {
           isEdited: true,
         });
       } else {
-        // foto secildiyse hem yazi hemde foto guncelle
-
         // secilen fotoyu storage'a yukle
         const newUrl = await upload(file);
 

@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 // dosyayi storage'a yükleyen foksiyon
 const upload = async (file) => {
-  // 1) dosya resim degilse veya dosya yoksa fonksiyonu durdur
+  // 1) dosya resim degilse fonksiyonu durdur
   // 2)dosya ismi image kelimesi ile baslamiyorsa kontrolu yapma
   if (!file?.type.startsWith("image") || !file) return null;
 
